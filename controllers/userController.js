@@ -21,7 +21,7 @@ exports.updateMe = catchAsync(async (req, res, next) => {
   if (req.body.password || req.body.passwordConfirm) {
     return next(
       new AppError(
-        'This route is not for password updates. Please user /updateMyPassword',
+        'This route is not for password updates. Please use /updateMyPassword.',
         400
       )
     );
@@ -56,13 +56,13 @@ exports.deleteMe = catchAsync(async (req, res, next) => {
 exports.createUser = (req, res) => {
   res.status(500).json({
     status: 'error',
-    message: 'This route is not yet defined! Please use /signup instead'
+    message: 'This route is not defined! Please use /signup instead'
   });
 };
 
 exports.getUser = factory.getOne(User);
 exports.getAllUsers = factory.getAll(User);
 
-// DO not update passwords with this
+// Do NOT update passwords with this!
 exports.updateUser = factory.updateOne(User);
 exports.deleteUser = factory.deleteOne(User);
